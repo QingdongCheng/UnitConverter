@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Unit Converter v1.0</string>
+    <string-array name="length_array">
+        <item>inch</item>
+        <item>mm</item>
+        <item>cm</item>
+        <item>m</item>
+        <item>km</item>
+        <item>ft</item>
+        <item>yd</item>
+        <item>mile</item>
+    </string-array>
+</resources>
