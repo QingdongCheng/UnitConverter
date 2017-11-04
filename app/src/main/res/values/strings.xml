@@ -10,4 +10,21 @@
         <item>yd</item>
         <item>mile</item>
     </string-array>
+
+    <string-array name="weight_array">
+        <item>g</item>
+        <item>mg</item>
+        <item>kg</item>
+        <item>ton</item>
+        <item>oz</item>
+        <item>lb</item>
+    </string-array>
+
+    <string-array name="temperature_array">
+        <item>°C</item>
+        <item>F</item>
+        <item>K</item>
+    </string-array>
+
+    <string name="helpText">"Thank you for using this unit converter. This app was developed as part of Purdue CNIT 355 programming assignment. \nIf you have any questions, E-mail me at qingdong.cheng@gmail.com."</string>
 </resources>

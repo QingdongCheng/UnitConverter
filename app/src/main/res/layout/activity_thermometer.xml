@@ -5,44 +5,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.purdue.qingdong.unitconverterv10.MainActivity"
-    android:onClick="onLength">
+    android:weightSum="1">
 
     <TableLayout
-        android:layout_height="100dp"
+        android:layout_height="100sp"
         android:layout_width="match_parent">
         <TableRow>
 
             <Button
-
                 android:text="Length"
                 android:id="@+id/btnLength"
+                android:layout_marginLeft="2sp"
                 android:background="?attr/selectableItemBackground"
                 android:drawableTop="@drawable/ruler"
                 android:onClick="onLength" />
 
             <Button
-
                 android:text="Weight"
                 android:id="@+id/btnWeight"
+                android:layout_marginLeft="2sp"
                 android:background="?attr/selectableItemBackground"
                 android:drawableTop="@drawable/scales"
                 android:onClick="onWeight" />
 
             <Button
-
                 android:text="Temparature"
+                android:layout_marginLeft="2sp"
                 android:id="@+id/btnThermometer"
                 android:background="@color/grey"
-                android:drawableTop="@drawable/thermometer"
-                android:onClick="onThermometer" />
+                android:drawableTop="@drawable/thermometer" />
 
             <Button
-
                 android:text="Help"
+                android:layout_marginLeft="2sp"
                 android:id="@+id/btnHelp"
                 android:background="?attr/selectableItemBackground"
                 android:drawableTop="@drawable/help"
@@ -55,5 +52,90 @@
 
     </TableLayout>
 
+    <TableLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="0.90"
+        >
+
+        <TableRow>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textAlignment="center"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:id="@+id/inputTemp" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:id="@+id/spinnerTemp" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="1.0"
+                android:textColor="@color/text"
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:id="@+id/CText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text=" °C"
+                android:id="@+id/cTextUnit" />
+        </TableRow>
+
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="33.8"
+                android:textColor="@color/text"
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:id="@+id/FText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text=" F"
+                android:id="@+id/FTextUnit" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="274.15"
+                android:textColor="@color/text"
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:id="@+id/KText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text=" K"
+                android:id="@+id/KTextUnit" />
+
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>
