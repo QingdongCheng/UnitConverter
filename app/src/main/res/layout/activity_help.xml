@@ -7,7 +7,6 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.purdue.qingdong.unitconverterv10.MainActivity"
-
     android:weightSum="1">
 
     <TableLayout
@@ -17,6 +16,7 @@
 
             <Button
                 android:text="Length"
+                android:textAllCaps="false"
                 android:id="@+id/btnLength"
                 android:layout_marginLeft="2sp"
                 android:background="?attr/selectableItemBackground"
@@ -25,6 +25,7 @@
 
             <Button
                 android:text="Weight"
+                android:textAllCaps="false"
                 android:layout_marginLeft="2sp"
                 android:id="@+id/btnWeight"
                 android:background="?attr/selectableItemBackground"
@@ -33,6 +34,7 @@
 
             <Button
                 android:text="Temparature"
+                android:textAllCaps="false"
                 android:layout_marginLeft="2sp"
                 android:id="@+id/btnThermometer"
                 android:background="?attr/selectableItemBackground"
@@ -41,6 +43,7 @@
 
             <Button
                 android:text="Help"
+                android:textAllCaps="false"
                 android:layout_marginLeft="2sp"
                 android:id="@+id/btnHelp"
                 android:background="@color/grey"
@@ -48,7 +51,6 @@
                 />
 
         </TableRow>
-
 
     </TableLayout>
 
@@ -58,9 +60,6 @@
         android:layout_height="wrap_content"
         android:text="@string/helpText"
         android:textSize="10pt"
-        android:textColor="#000000"
-        />
-
-
+        android:textColor="#000000" />
 
 </LinearLayout>

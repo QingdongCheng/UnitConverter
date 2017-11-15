@@ -16,6 +16,7 @@
 
             <Button
                 android:text="Length"
+                android:textAllCaps="false"
                 android:id="@+id/btnLength"
                 android:background="?attr/selectableItemBackground"
                 android:drawableTop="@drawable/ruler"
@@ -23,6 +24,7 @@
 
             <Button
                 android:text="Weight"
+                android:textAllCaps="false"
                 android:layout_marginLeft="2sp"
                 android:id="@+id/btnWeight"
                 android:background="@color/grey"
@@ -30,6 +32,7 @@
 
             <Button
                 android:text="Temparature"
+                android:textAllCaps="false"
                 android:layout_marginLeft="2sp"
                 android:id="@+id/btnThermometer"
                 android:background="?attr/selectableItemBackground"
@@ -38,6 +41,7 @@
 
             <Button
                 android:text="Help"
+                android:textAllCaps="false"
                 android:id="@+id/btnHelp"
                 android:layout_marginLeft="2sp"
                 android:background="?attr/selectableItemBackground"
@@ -46,16 +50,12 @@
 
         </TableRow>
 
-
-
-
     </TableLayout>
 
     <TableLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_weight="0.90"
-        >
+        android:layout_weight="0.90">
 
         <TableRow>
             <EditText
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40sp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="1000.0"
+                android:text="0.0"
                 android:textColor="@color/text"
                 android:gravity="right"
                 android:textAlignment="gravity"
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40sp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="1.0"
+                android:text="0.0"
                 android:textColor="@color/text"
                 android:gravity="right"
                 android:textAlignment="gravity"
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40sp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="0.001"
+                android:text="0.0"
                 android:textColor="@color/text"
                 android:gravity="right"
                 android:textAlignment="gravity"
@@ -140,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40sp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="1.0E-6"
+                android:text="0.0"
                 android:textColor="@color/text"
                 android:gravity="right"
                 android:textAlignment="gravity"
@@ -160,7 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40sp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="0.035274"
+                android:text="0.0"
                 android:textColor="@color/text"
                 android:gravity="right"
                 android:textAlignment="gravity"
@@ -181,7 +181,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40sp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="0.002205"
+                android:text="0.0"
                 android:textColor="@color/text"
                 android:gravity="right"
                 android:textAlignment="gravity"
@@ -195,8 +195,6 @@
                 android:id="@+id/lbTextUnit" />
 
         </TableRow>
-
-
 
     </TableLayout>
 

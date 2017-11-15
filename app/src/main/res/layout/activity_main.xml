@@ -16,12 +16,14 @@
 
             <Button
                 android:text="Length"
+                android:textAllCaps="false"
                 android:id="@+id/btnLength"
                 android:background="@color/grey"
                 android:drawableTop="@drawable/ruler"/>
 
             <Button
                 android:text="Weight"
+                android:textAllCaps="false"
                 android:layout_marginLeft="2sp"
                 android:id="@+id/btnWeight"
                 android:background="?attr/selectableItemBackground"
@@ -30,6 +32,7 @@
 
             <Button
                 android:text="Temparature"
+                android:textAllCaps="false"
                 android:id="@+id/btnThermometer"
                 android:layout_marginLeft="2sp"
                 android:background="?attr/selectableItemBackground"
@@ -38,6 +41,7 @@
 
             <Button
                 android:text="Help"
+                android:textAllCaps="false"
                 android:id="@+id/btnHelp"
                 android:layout_marginLeft="2sp"
                 android:background="?attr/selectableItemBackground"
@@ -79,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="25.4000000000"
+            android:text="0.0"
             android:textColor="@color/text"
             android:gravity="right"
             android:textAlignment="gravity"
@@ -100,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="2.5400000000"
+            android:text="0.0"
             android:textColor="@color/text"
             android:gravity="right"
             android:textAlignment="gravity"
@@ -121,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="0.0254000000"
+            android:text="0.0"
             android:textColor="@color/text"
             android:gravity="right"
             android:textAlignment="gravity"
@@ -142,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="0.0000254000"
+            android:text="0.0"
             android:textColor="@color/text"
             android:gravity="right"
             android:textAlignment="gravity"
@@ -162,7 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="1.0000000000"
+            android:text="0.0"
             android:textColor="@color/text"
             android:gravity="right"
             android:textAlignment="gravity"
@@ -182,7 +186,7 @@
             android:layout_width="wrap_content"
             android:layout_height="45sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="0.0833333333"
+            android:text="0.0"
             android:textColor="@color/text"
             android:gravity="right"
             android:textAlignment="gravity"
@@ -203,7 +207,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="0.0277777778"
+            android:text="0.0"
             android:textColor="@color/text"
             android:gravity="right"
             android:textAlignment="gravity"
@@ -225,7 +229,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40sp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="0.0000157828"
+            android:text="0.0"
             android:textColor="@color/text"
             android:gravity="right"
             android:textAlignment="gravity"

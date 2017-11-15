@@ -32,7 +32,6 @@ public class ThermometerActivity extends AppCompatActivity {
         Ctext = (TextView) findViewById(R.id.CText);
         Ftext = (TextView) findViewById(R.id.FText);
         Ktext = (TextView) findViewById(R.id.KText);
-        inputTemp.setText("1");
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.temperature_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
@@ -44,12 +43,10 @@ public class ThermometerActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 ThermometerThread thermometerThread = new ThermometerThread();
@@ -62,12 +59,10 @@ public class ThermometerActivity extends AppCompatActivity {
                 ThermometerThread thermometerThread = new ThermometerThread();
                 thermometerThread.start();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-
         });
         handler = new Handler() {
             @Override
@@ -80,18 +75,30 @@ public class ThermometerActivity extends AppCompatActivity {
         };
     }
 
+    public static boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+
     class ThermometerThread extends Thread {
         @Override
         public void run(){
             int position = spinnerTemp.getSelectedItemPosition();
             String temp = inputTemp.getText().toString();
-
             double celsius = 0.0;
             double fahrenheit = 0.0;
             double k = 0.0;
             double input = 0.0;
 
-            if (!temp.equals("")) {
+            if (!temp.equals("") && isNumeric(temp)) {
                 input = Double.parseDouble(temp);
             }
 
@@ -101,25 +108,18 @@ public class ThermometerActivity extends AppCompatActivity {
                     fahrenheit = celsius * 9 / 5 + 32;
                     k = celsius + 273.15;
                     break;
-
                 case 1:
                     // fahrenheit
                     fahrenheit = input;
                     celsius = (fahrenheit - 32) * 5 / 9;
                     k = celsius + 273.15;
                     break;
-
                 case 2://k
                     k = input;
                     celsius = k - 273.15;
                     fahrenheit = celsius * 9 / 5 + 32;
                     break;
-
             }
-
-//            String celsiusStr = String.format("%.4f", celsius);
-//            String fahrenheitStr = String.format("%.4f", fahrenheit);
-//            String kStr = String.format("%.4f", k);
             String[] tempStr = {"" + celsius, "" + fahrenheit, "" + k};
             Message meg = handler.obtainMessage();
             meg.obj = tempStr;
@@ -134,7 +134,6 @@ public class ThermometerActivity extends AppCompatActivity {
     public void onWeight(View v) {
         Intent intent = new Intent(this, WeightActivity.class);
         startActivity(intent);
-
     }
 
     public void onHelp(View v) {

@@ -22,7 +22,7 @@
 
     <string-array name="temperature_array">
         <item>°C</item>
-        <item>F</item>
+        <item>°F</item>
         <item>K</item>
     </string-array>
 

@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +14,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
     Button btnLength;
     Button btnWeight;
     Button btnThermometer;
@@ -30,15 +28,6 @@ public class MainActivity extends AppCompatActivity {
     static TextView mileText;
     static TextView inchText;
     static EditText inputLength;
-//    private static final int INCH = 0;
-//    private static final int MM = 0;
-//    private static final int CM = 0;
-//    private static final int M = 0;
-//    private static final int KM = 0;
-//    private static final int FT = 0;
-//    private static final int YD = 0;
-//    private static final int MILE = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         btnHelp = (Button) findViewById(R.id.btnHelp);
         spinner = (Spinner) findViewById(R.id.spinner);
         inputLength = (EditText) findViewById(R.id.inputLength);
-        inputLength.setText("1");
         mmText = (TextView) findViewById(R.id.mmText);
         cmText = (TextView) findViewById(R.id.cmText);
         mText = (TextView) findViewById(R.id.mText);
@@ -72,13 +60,25 @@ public class MainActivity extends AppCompatActivity {
             {
                 String input = inputLength.getText().toString();
                 displayLength(input, position);
-
             }
             public void onNothingSelected(AdapterView<?> parent)
             {
 
             }
         });
+    }
+
+    public static boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
     }
 
     public static void displayLength(String length, int iCurrentSelection) {
@@ -92,13 +92,12 @@ public class MainActivity extends AppCompatActivity {
         double yd = 0.0;
         double d = 0.0;
 
-        if (!length.equals("")) {
+        if (!length.equals("") && isNumeric(length)) {
             d = Double.parseDouble(length);
         }
 
         switch (iCurrentSelection) {
-            case 0:
-                // inch
+            case 0:// inch
                 inch = d;
                 mm = 25.4 * d;
                 cm = 2.54 * d;
@@ -111,17 +110,14 @@ public class MainActivity extends AppCompatActivity {
             case 1://mm
                 mm = d;
                 cm = mm / 10;
-                m = mm / 100;
+                m = cm / 100;
                 km = m / 1000;
                 inch = mm / 25.4;
                 ft = inch / 12;
                 yd = ft / 3;
                 mile = yd / 1760;
-
                 break;
-
             case 2://cm
-
                 cm = d;
                 mm = cm * 10;
                 m = cm / 100;
@@ -131,9 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 yd = ft / 3;
                 mile = yd / 1760;
                 break;
-
             case 3://m
-
                 m = d;
                 mm = m * 1000;
                 cm = mm / 10;
@@ -143,9 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 yd = ft / 3;
                 mile = yd / 1760;
                 break;
-
             case 4://km
-
                 km = d;
                 m = km * 1000;
                 mm = m * 1000;
@@ -154,10 +146,8 @@ public class MainActivity extends AppCompatActivity {
                 ft = inch / 12;
                 yd = ft / 3;
                 mile = yd / 1760;
-
                 break;
             case 5://ft
-
                 ft = d;
                 inch = ft * 12;
                 m = 0.0254 * inch;
@@ -166,10 +156,8 @@ public class MainActivity extends AppCompatActivity {
                 cm = mm / 10;
                 yd = ft / 3;
                 mile = yd / 1760;
-
                 break;
             case 6://yd
-
                 yd = d;
                 ft = yd * 3;
                 inch = ft * 12;
@@ -178,10 +166,8 @@ public class MainActivity extends AppCompatActivity {
                 mm = m * 1000;
                 cm = mm / 10;
                 mile = yd / 1760;
-
                 break;
             case 7://mile
-
                 mile = d;
                 yd = mile * 1760;
                 ft = yd * 3;
@@ -191,19 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 mm = m * 1000;
                 cm = mm / 10;
                 break;
-
         }
-
-        //convert double to string with 4 decimals
-//        String mmStr = String.format("%.10f",mm);
-//        String cmStr = String.format("%.10f",cm);
-//        String mStr = String.format("%.10f",m);
-//        String kmStr = String.format("%.10f",km);
-//        String ydStr = String.format("%.10f",yd);
-//        String inchStr = String.format("%.10f",inch);
-//        String mileStr = String.format("%.10f",mile);
-//        String ftStr = String.format("%.10f",ft);
-
         mmText.setText(mm + "");
         cmText.setText(cm + "");
         mText.setText(m + "");
@@ -217,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
 
     TextWatcher watcher = new TextWatcher() {
         public void afterTextChanged(Editable s) {
-
             String length = inputLength.getText().toString();
             int iCurrentSelection = spinner.getSelectedItemPosition();
             displayLength(length, iCurrentSelection);
@@ -225,25 +198,19 @@ public class MainActivity extends AppCompatActivity {
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
         }
     };
-
 
     public void onWeight(View v) {
         Intent intent = new Intent(this, WeightActivity.class);
         startActivity(intent);
-
-
     }
     public void onThermometer(View v) {
-
         Intent intent = new Intent(this, ThermometerActivity.class);
         startActivity(intent);
     }
     public void onHelp(View v) {
         Intent intent = new Intent(this, HelpActivity.class);
         startActivity(intent);
-
     }
 }

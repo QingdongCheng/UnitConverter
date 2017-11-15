@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,7 +16,7 @@ import android.widget.TextView;
 
 public class WeightActivity extends AppCompatActivity {
 
-     EditText inputWeight;
+    EditText inputWeight;
     Spinner spinnerWeight;
     static TextView mgText;
     static TextView gText;
@@ -26,8 +25,6 @@ public class WeightActivity extends AppCompatActivity {
     static TextView ozText;
     static TextView lbText;
     Handler handler;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +37,7 @@ public class WeightActivity extends AppCompatActivity {
         tonText = (TextView) findViewById(R.id.tonText);
         ozText = (TextView) findViewById(R.id.ozText);
         lbText = (TextView) findViewById(R.id.lbText);
-        inputWeight.setText("1");
+        //inputWeight.setText("1");
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.weight_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
@@ -53,7 +50,6 @@ public class WeightActivity extends AppCompatActivity {
             {
                 WeightThread weightThread = new WeightThread();
                 weightThread.start();
-
             }
             public void onNothingSelected(AdapterView<?> parent)
             {
@@ -83,7 +79,6 @@ public class WeightActivity extends AppCompatActivity {
 
     }
 
-
     class WeightThread extends Thread {
         @Override
         public void run() {
@@ -96,8 +91,7 @@ public class WeightActivity extends AppCompatActivity {
             double oz = 0.0;
             double lb = 0.0;
             double input = 0.0;
-
-            if (!weight.equals("")) {
+            if (!weight.equals("") && isNumeric(weight)) {
                 input = Double.parseDouble(weight);
             }
 
@@ -110,7 +104,6 @@ public class WeightActivity extends AppCompatActivity {
                     lb = g * 0.00220462;
                     oz = g * 0.035274;
                     break;
-
                 case 1:
                     // mg
                     mg = input;
@@ -120,7 +113,6 @@ public class WeightActivity extends AppCompatActivity {
                     lb = g * 0.00220462;
                     oz = g * 0.035274;
                     break;
-
                 case 2://kg
                     kg = input;
                     g = kg * 1000;
@@ -129,7 +121,6 @@ public class WeightActivity extends AppCompatActivity {
                     lb = g * 0.00220462;
                     oz = g * 0.035274;
                     break;
-
                 case 3://ton
                     ton = input;
                     kg = ton * 1000;
@@ -138,7 +129,6 @@ public class WeightActivity extends AppCompatActivity {
                     lb = g * 0.00220462;
                     oz = g * 0.035274;
                     break;
-
                 case 4://oz
                     oz = input;
                     kg = oz * 0.0283495;
@@ -155,17 +145,7 @@ public class WeightActivity extends AppCompatActivity {
                     mg = g * 1000;
                     ton = kg / 1000;
                     break;
-
             }
-
-            //convert double to string with 4 decimals
-//            String mgStr = String.format("%.10f",mg);
-//            String gStr = String.format("%.10f",g);
-//            String kgStr = String.format("%.10f",kg);
-//            String tonStr = String.format("%.10f",ton);
-//            String ozStr = String.format("%.10f",oz);
-//            String lbStr = String.format("%.10f",lb);
-
             String[] weightStr = {"" + g, "" + mg, "" + kg, "" + ton, "" + oz, "" + lb};
             Message msg = handler.obtainMessage();
             msg.obj = weightStr;
@@ -173,11 +153,23 @@ public class WeightActivity extends AppCompatActivity {
         }
     }
 
+    public static boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+
     TextWatcher watcher = new TextWatcher() {
         public void afterTextChanged(Editable s) {
             WeightThread weightThread = new WeightThread();
             weightThread.start();
-
         }
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
@@ -186,21 +178,15 @@ public class WeightActivity extends AppCompatActivity {
         }
     };
 
-
     public void onLength(View v) {
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
-
     public void onThermometer(View v) {
-
         Intent intent = new Intent(this, ThermometerActivity.class);
         startActivity(intent);
     }
     public void onHelp(View v) {
-
         Intent intent = new Intent(this, HelpActivity.class);
         startActivity(intent);
     }
